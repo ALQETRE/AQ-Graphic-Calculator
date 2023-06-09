@@ -101,6 +101,12 @@ def button(x, y, text, quest):
                 if event.type == pygame.MOUSEWHEEL:
                     idx += event.y
                     event.y = 0
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    idx += 1
+                elif event.key == pygame.K_DOWN:
+                    idx -= 1
+
     pygame.quit()
 
 def add_history(text):
