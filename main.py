@@ -1,5 +1,6 @@
 import pygame, os, time, math
 from clipboard import copy, paste
+from sys import exit
 
 pygame.init()
 
@@ -34,6 +35,7 @@ def get_text_input(x, y, text1):
             if event.type == pygame.QUIT:
                 enter = False
                 pygame.quit()
+                exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
                     text = text[:-1]
@@ -97,6 +99,8 @@ def button(x, y, text, quest):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                pygame.quit()
+                exit()
             if back_rect.collidepoint(pos):
                 if event.type == pygame.MOUSEWHEEL:
                     idx += event.y
@@ -107,7 +111,7 @@ def button(x, y, text, quest):
                 elif event.key == pygame.K_DOWN:
                     idx -= 1
 
-    pygame.quit()
+    
 
 def add_history(text):
     if len(history) == 0:
@@ -334,6 +338,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-    pygame.quit()
+                pygame.quit()
+                exit()
+                
+    
 
 main()
